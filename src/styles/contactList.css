@@ -7,4 +7,31 @@
     box-sizing: border-box;
     overflow-x: hidden;
     margin-left: 0;
+    padding: 0 20px;
+}
+
+.contactHeading {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* padding: 5px; */
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.contactHeading span {
+    color: gray;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.contactHeading button {
+    color: gray;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 100%;
+    background-color: white;
+    border-color: rgb(232, 171, 148);
+    cursor: pointer;
 }
