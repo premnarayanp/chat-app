@@ -1,0 +1,9 @@
+.ChatBox {
+    /* background-color: rgb(203, 231, 254); */
+    height: 92%;
+    width: 60%;
+    border: solid 1px rgb(26, 25, 25);
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}

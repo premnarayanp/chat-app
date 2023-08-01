@@ -1,0 +1,10 @@
+.ContactList {
+    /* background-color: pink; */
+    height: 92%;
+    width: 40%;
+    border: solid 1px grey;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-left: 0;
+}

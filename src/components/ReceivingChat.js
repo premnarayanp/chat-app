@@ -1,10 +1,10 @@
 import{Component} from "react"
 
 //left sidebar
-export default class Contact extends Component {
+export default class ReceivingChat extends Component {
   render(){
     return(
-        <div className="Contact">
+        <div className="ReceivingChat">
             
         </div>
     )

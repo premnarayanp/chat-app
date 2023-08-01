@@ -1,9 +1,11 @@
 import '../styles/App.css';
-import Navbar  from './Navbar';
+import { Navbar,ContactList,ChatBox} from './index'
 function App() {
   return (
     <div className="App">
       <Navbar/>
+      <ContactList/>
+      <ChatBox/>
     </div>
   );
 }
