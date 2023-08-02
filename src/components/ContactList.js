@@ -2,10 +2,10 @@ import{Component} from "react";
 import '../styles/contactList.css';
 import {SearchBar,Contact} from './index';
 //left sidebar
+
 export default class ContactList extends Component {
   render(){
-     const {contactList}=this.props;
-    console.log("contactList=",contactList);
+     const {contactsOrGroupsList}=this.props;
     return(
         <div className="ContactList">
              <SearchBar/>
@@ -14,7 +14,7 @@ export default class ContactList extends Component {
                <button>+</button>
              </div>
 
-             {contactList.map((contactOrGroup,index) => (
+             {contactsOrGroupsList.map((contactOrGroup,index) => (
               <Contact 
                 contactOrGroup={contactOrGroup} 
                 key={`contact-${index}`}

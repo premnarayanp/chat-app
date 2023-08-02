@@ -1,5 +1,5 @@
 export const data={
-  contactList:[
+  contactsOrGroupsList:[
     //---------1-------------------
     { 
       isGroup:false,
@@ -72,12 +72,12 @@ export const data={
   ],
 
   //==============chatLists=========================
-  chatList:[
+  allUsersChatsList:[
     //---------1-------------------
     {
       chatsId:1,
       contactOrGroupId:1,
-      chat:[
+      chatsList:[
         {
           isMyMessage:false,
           senderName:"Anil",
@@ -107,7 +107,7 @@ export const data={
     {
       chatsId:2,
       contactOrGroupId:2,
-      chat:[
+      chatsList:[
         {
           isMyMessage:false,
           senderName:"Anil",
@@ -137,7 +137,7 @@ export const data={
     {
       chatsId:3,
       contactOrGroupId:3,
-      chat:[
+      chatsList:[
         {
           isMyMessage:false,
           senderName:"Anil",
@@ -167,7 +167,7 @@ export const data={
     {
       chatsId:4,
       contactOrGroupId:4,
-      chat:[
+      chatsList:[
         {
           isMyMessage:false,
           senderName:"Anil",

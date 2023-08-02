@@ -1,4 +1,4 @@
-import App from './App';
+// import App from './App';
 import Navbar from './Navbar';
 
 import ContactList from './ContactList';//LeftSideBar
