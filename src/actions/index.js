@@ -1,4 +1,4 @@
-// action types
+   // action types
 export const ADD_CONTACTS_GROUPS_LIST = 'ADD_CONTACTS_GROUPS_LIST';
 export const ADD_CONTACT_GROUP_TO_LIST = 'ADD_CONTACT_GROUP_TO_LIST';
 
@@ -8,8 +8,12 @@ export const ADD_CHAT_TO_LIST = 'ADD_CHAT_TO_LIST';
 export const ADD_GROUP_MEMBERS_LIST = 'ADD_GROUP_MEMBERS_LIST'; 
 export const ADD_GROUP_MEMBERS_TO_LIST = 'ADD_GROUP_MEMBERS_TO_LIST'; 
 
-// export const SET_SHOW_HOVERING = 'SET_SHOW_HOVERING';
+export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';
+export const SHOW_GROUP_FORM = 'SHOW_GROUP_FORM';
 
+export const UPDATE_CONTACT_GROUP_ID = 'UPDATE_CONTACT_GROUP_ID';
+export const UPDATE_CHAT_ID = 'UPDATE_CHAT_ID';
+   
 // action creators
 export function addContactsOrGroupsList(contactsOrGroupsList) {
   return {
@@ -54,10 +58,33 @@ export function addGroupMembersToList(groupMembers) {
   };
 }
 
-// export function setShowHoveringEffects(val) {
-//   return {
-//     type: SET_SHOW_HOVERING,
-//     val,
-//   };
-// }
+export function showContactForm(val) {
+  return {
+    type: SHOW_CONTACT_FORM,
+    val,
+  };
+}
+
+export function showGroupForm(val) {
+  return {
+    type: SHOW_GROUP_FORM,
+    val,
+  };
+}
+
+export function updateContactGroupId(val) {
+  return {
+    type: UPDATE_CONTACT_GROUP_ID,
+    val,
+  };
+}
+
+export function updateChatId(val) {
+  return {
+    type: UPDATE_CHAT_ID,
+    val,
+  };
+}
+
+
 

@@ -5,7 +5,10 @@ import {
   ADD_CHAT_TO_LIST,
   ADD_GROUP_MEMBERS_LIST,
   ADD_GROUP_MEMBERS_TO_LIST,
-  // SET_SHOW_HOVERING,
+  SHOW_CONTACT_FORM,
+  SHOW_GROUP_FORM,
+  UPDATE_CONTACT_GROUP_ID,
+  UPDATE_CHAT_ID
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -14,7 +17,10 @@ const initialChattingState = {
   contactsOrGroupsList: [],
   chatsList: [],
   groupMembersList: [],
-  // setShowHovering:false
+  setShowContactForm:false,
+  setShowGroupForm:false,
+  contactOrGroupId:0,
+  chatId:0,
 };
 
 export default function chatting(state = initialChattingState, action) {
@@ -62,12 +68,30 @@ export default function chatting(state = initialChattingState, action) {
           groupMembersList: [...action.groupMembers, ...state.groupMembersList],
       };
 
-    // case SET_SHOW_HOVERING:
-    //   return {
-    //     ...state,
-    //     setShowHovering: action.val,
-    //   };
-    
+    case SHOW_CONTACT_FORM:
+      return {
+        ...state,
+        setShowContactForm: action.val,
+      };
+
+    case SHOW_GROUP_FORM:
+      return {
+        ...state,
+        setShowGroupForm: action.val,
+      };
+
+    case UPDATE_CONTACT_GROUP_ID:
+      return{
+        ...state,
+        contactOrGroupId:action.val
+      }
+
+    case UPDATE_CHAT_ID:
+      return{
+        ...state,
+        chatId:action.val
+      }  
+
     default:
       return state;
   }

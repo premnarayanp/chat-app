@@ -1,18 +1,31 @@
 import{Component} from "react";
 import '../styles/contactList.css';
-import {SearchBar,Contact} from './index';
+import {SearchBar,Contact,ContactForm} from './index';
+import { StoreContext } from '..';
+import {showContactForm} from '../actions/index'
+
 //left sidebar
 
-export default class ContactList extends Component {
+export  class ContactList extends Component {
+
+  handleAddContacts=(e)=>{
+   this.props.dispatch(showContactForm(!this.props.setShowContactForm));
+  }
+
   render(){
-     const {contactsOrGroupsList}=this.props;
+     const {contactsOrGroupsList,contactOrGroupId}=this.props;
     return(
         <div className="ContactList">
              <SearchBar/>
              <div className="contactHeading">
                <span>Conversation</span>
-               <button>+</button>
+               <button onClick={this.handleAddContacts}>+</button>
              </div>
+
+             { this.props.setShowContactForm && <ContactForm 
+              contactOrGroupId={contactOrGroupId}
+              setShowContactForm={this.props.setShowContactForm}
+              />}
 
              {contactsOrGroupsList.map((contactOrGroup,index) => (
               <Contact 
@@ -23,5 +36,23 @@ export default class ContactList extends Component {
               
         </div>
     )
+  }
+}
+
+
+export default class ContactListWrapper extends Component {
+  render() {
+    return (
+      <StoreContext.Consumer>
+        {(store) => (
+          <ContactList 
+            dispatch={store.dispatch} 
+            setShowContactForm={this.props.setShowContactForm}
+            contactsOrGroupsList={this.props.contactsOrGroupsList}
+            contactOrGroupId={store.getState().contactOrGroupId}
+            />
+        )}
+      </StoreContext.Consumer>
+    );
   }
 }
