@@ -16,7 +16,7 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
 
     const initialContact={ 
       isGroup:false,
-      contactORGroupId:0,
+      contactId:0,
       contactOrGroupName:'',
       mobileNumber:'',  
       profilePict:require('../assets/myPhoto.jpg'),
@@ -30,7 +30,7 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
 
     initialContact.contactOrGroupName=this.state.contactName;
     initialContact.mobileNumber=this.state.mobileNum;
-    initialContact.contactORGroupId=this.props.contactOrGroupId+1;
+    initialContact.contactId=this.props.contactOrGroupId+1;
 
     //console.log("initialContact=",initialContact);
     this.props.dispatch(addContactOrGroupToList(initialContact));
@@ -76,10 +76,10 @@ export default class ContactFormWrapper extends Component {
   render() {
     return (
       <StoreContext.Consumer>
-        {(store) => (
+        {(userAndStore) => (
           <ContactForm 
-            dispatch={store.dispatch} 
-            contactOrGroupId={store.getState().contactOrGroupId}
+            dispatch={userAndStore.store.dispatch} 
+            contactOrGroupId={userAndStore.store.getState().contactOrGroupId}
             setShowContactForm={this.props.setShowContactForm}
             />
         )}

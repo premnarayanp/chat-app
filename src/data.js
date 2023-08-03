@@ -3,12 +3,12 @@ export const data={
     //---------1-------------------
     { 
       isGroup:false,
-      contactORGroupId:1,
+      contactId:1, //userId
       contactOrGroupName:'Anil',
-      mobileNumber:'9893567476',   //admin mobile number or user/contact number
+      mobileNumber:'9893567476',  //admin mobile number or user/contact number
       profilePict:require('./assets/myPhoto.jpg'),
       lastChat:{
-        text:"Hello how are you...",
+        text:"Hello how are you...",  
         date:"01/08/2023",
         time:"10:00 am"
       },
@@ -18,25 +18,23 @@ export const data={
     //---------2-----------------
     {
       isGroup:true,
-      contactORGroupId:2,
-      contactOrGroupName:'Java Training',
-      mobileNumber:null, 
+      groupId:2,
+      contactOrGroupName:'Java Tr aining',
+      //mobileNumber:null, 
       profilePict:require('./assets/myPhoto.jpg'),
       lastChat:{
         text:"Training schedule on 12 am...",
         date:"02/08/2023",
         time:"11:00 am"
       },
-      group:{
-        groupAdmins:[{name:"prem",mobile:'9301511759'}],
-        lastActiveUser:[{name:"Anil",profilePic:require('./assets/ankit.jpg')}]
-      }
+      groupAdmins:[{name:"prem",mobile:'9301511759',profilePic:require('./assets/ankit.jpg')}],
+      lastActiveUser:[{name:"Anil",mobile:'9301511759',profilePic:require('./assets/ankit.jpg')}]
     },
 
     //----------3-------------------
     {
       isGroup:false,
-      contactORGroupId:3,
+      contactId:3,
       contactOrGroupName:'Akash',
       mobileNumber:'8463784838',   //admin mobile number or user/contact number
       profilePict:require('./assets/myPhoto.jpg'),
@@ -45,25 +43,23 @@ export const data={
         date:"01/08/2023",
         time:"11:00 am"
       },
-      group:null,
+      //group:null,
     },
 
     //-------4-----------------
     {
       isGroup:true,
-      contactORGroupId:4,
+      groupId:4,
       contactOrGroupName:'Full stack web',
-      mobileNumber:null, 
+      // mobileNumber:null, 
       profilePict:require('./assets/myPhoto.jpg'),
       lastChat:{
         text:"hello! how are yo students...?",
         date:"02/08/2023",
         time:"09:00 am"
       },
-      group:{
-        groupAdmins:[{name:"prem",mobile:'9301511759'}],
-        lastActiveUser:[{name:"Anil",profilePic:require('./assets/ankit.jpg')}]
-      }
+      groupAdmins:[{name:"prem",mobile:'9301511759',profilePic:require('./assets/ankit.jpg')}],
+      lastActiveUser:[{name:"Anil",mobile:'9301511759',profilePic:require('./assets/ankit.jpg')}]
     }
   ],
 

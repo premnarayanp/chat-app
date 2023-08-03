@@ -8,7 +8,7 @@ import {showContactForm} from '../actions/index'
 
 export  class ContactList extends Component {
 
-  handleAddContacts=(e)=>{
+  handleAddContactsBtnClick=(e)=>{
    this.props.dispatch(showContactForm(!this.props.setShowContactForm));
   }
 
@@ -19,7 +19,7 @@ export  class ContactList extends Component {
              <SearchBar/>
              <div className="contactHeading">
                <span>Conversation</span>
-               <button onClick={this.handleAddContacts}>+</button>
+               <button onClick={this.handleAddContactsBtnClick}>+</button>
              </div>
 
              { this.props.setShowContactForm && <ContactForm 
@@ -44,12 +44,12 @@ export default class ContactListWrapper extends Component {
   render() {
     return (
       <StoreContext.Consumer>
-        {(store) => (
+        {(userAndStore) => (
           <ContactList 
-            dispatch={store.dispatch} 
+            dispatch={userAndStore.store.dispatch} 
             setShowContactForm={this.props.setShowContactForm}
             contactsOrGroupsList={this.props.contactsOrGroupsList}
-            contactOrGroupId={store.getState().contactOrGroupId}
+            contactOrGroupId={userAndStore.store.getState().contactOrGroupId}
             />
         )}
       </StoreContext.Consumer>

@@ -24,7 +24,7 @@ export default class Contact extends Component {
               {
                 contactOrGroup.isGroup && this.state.isHover &&
                 <span className='rounded-img-container right-pic'>
-                 <img src={contactOrGroup.group.lastActiveUser[0].profilePic} alt="profile" />
+                 <img src={contactOrGroup.lastActiveUser[0].profilePic} alt="profile" />
                 </span>
               }
 
@@ -32,7 +32,7 @@ export default class Contact extends Component {
                 <span>{contactOrGroup.contactOrGroupName}</span>
                 {
                   contactOrGroup.isGroup && this.state.isHover &&
-                  <span>{","+contactOrGroup.group.lastActiveUser[0].name+"..."}</span>
+                  <span>{","+contactOrGroup.lastActiveUser[0].name+"..."}</span>
                 }
                 <p>{contactOrGroup.lastChat.text}</p>
               </span> 

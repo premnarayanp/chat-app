@@ -16,13 +16,15 @@ import { StoreContext } from '../index';
   }
 
  render(){
-    const { contactsOrGroupsList,setShowContactForm } = this.props.store.getState();
+    const { contactsOrGroupsList,setShowContactForm,setShowGroupForm } = this.props.store.getState();
     //console.log('contactsOrGroupsList', contactsOrGroupsList);
     // console.log('chatsList', chatsList);
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar
+        setShowGroupForm={setShowGroupForm}
+      />
       <ContactList 
         contactsOrGroupsList={contactsOrGroupsList}
         setShowContactForm={setShowContactForm}
@@ -38,7 +40,7 @@ class AppWrapper extends Component {
   render() {
     return (
       <StoreContext.Consumer>
-        {(store) => <App store={store} />}
+        {(userAndStore) => <App store={userAndStore.store} />}
       </StoreContext.Consumer>
     );
   }

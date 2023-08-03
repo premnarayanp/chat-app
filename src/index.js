@@ -22,19 +22,31 @@ console.log('state', store.getState());
 export const StoreContext = createContext();
 console.log('StoreContext', StoreContext);
 
+const user={
+  name:"Prem",
+  mobile:9301511759,
+  profilePic:require('./assets/myPhoto.jpg'),
+  contactId:0, //like user id
+}
+
 class Provider extends React.Component {
   render() {
-    const { store } = this.props;
+    const { userAndStore} = this.props;
     return (
-      <StoreContext.Provider value={store}>
+      <StoreContext.Provider value={userAndStore}>
         {this.props.children}
       </StoreContext.Provider>
     );
   }
 }
 
+const userAndStore={
+  user:user,
+  store:store,
+}
+
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider userAndStore={userAndStore}>
     <App />
   </Provider>,
   document.getElementById('root')
