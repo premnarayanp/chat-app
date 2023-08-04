@@ -16,7 +16,7 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
 
     const initialContact={ 
       isGroup:false,
-      contactId:0,
+      contactOrGroupId:0,
       contactOrGroupName:'',
       mobileNumber:'',  
       profilePict:require('../assets/myPhoto.jpg'),
@@ -30,7 +30,7 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
 
     initialContact.contactOrGroupName=this.state.contactName;
     initialContact.mobileNumber=this.state.mobileNum;
-    initialContact.contactId=this.props.contactOrGroupId+1;
+    initialContact.contactOrGroupId=this.props.contactOrGroupId+1;
 
     //console.log("initialContact=",initialContact);
     this.props.dispatch(addContactOrGroupToList(initialContact));

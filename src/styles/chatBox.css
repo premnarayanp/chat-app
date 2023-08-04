@@ -1,9 +1,24 @@
 .ChatBox {
-    /* background-color: rgb(203, 231, 254); */
     height: 92%;
     width: 60%;
-    border: solid 1px rgb(26, 25, 25);
     display: inline-block;
     box-sizing: border-box;
     overflow-x: hidden;
+    padding: 5px 20px;
 }
+
+.notChat {
+    text-align: center;
+    color: brown;
+    font-family: sans-serif;
+}
+
+
+/* .chatBoxContainer {
+    height: 100%;
+    width: 100%;
+    border: solid 1px rgb(26, 25, 25);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+} */

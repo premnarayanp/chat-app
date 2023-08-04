@@ -1,8 +1,10 @@
 import {
   ADD_CONTACTS_GROUPS_LIST,
   ADD_CONTACT_GROUP_TO_LIST,
-  ADD_CHATS_LIST,
-  ADD_CHAT_TO_LIST,
+  ADD_CHATS_LIST_OF_LIST,
+  ADD_CHATS_LIST_TO_LIST,
+  ADD_CURRENT_CHATS_LIST,
+  ADD_CURRENT_CHAT_TO_LIST,
   ADD_GROUP_MEMBERS_LIST,
   ADD_GROUP_MEMBERS_TO_LIST,
   SHOW_CONTACT_FORM,
@@ -15,7 +17,8 @@ import {
 
 const initialChattingState = {
   contactsOrGroupsList: [],
-  chatsList: [],
+  chatsListOfList:[],
+  currentChatsList: [],
   groupMembersList: [],
   setShowContactForm:false,
   setShowGroupForm:false,
@@ -26,7 +29,7 @@ const initialChattingState = {
 export default function chatting(state = initialChattingState, action) {
   // fetch chats/contacts-groups/groupMembers and save in store
 
-  switch (action.type) {
+  switch (action.type) { 
     case ADD_CONTACTS_GROUPS_LIST:
       return {
         ...state,
@@ -41,17 +44,30 @@ export default function chatting(state = initialChattingState, action) {
       };
 
 
-    case ADD_CHATS_LIST:
+      case ADD_CHATS_LIST_OF_LIST:
+        return {
+          ...state,
+          chatsListOfList: action.chatsListOfList,
+        };
+  
+  
+      case ADD_CHATS_LIST_TO_LIST:
+        return {
+          ...state,
+          chatsListOfList: [action.chat, ...state.chatsListOfList],
+        };  
+
+    case ADD_CURRENT_CHATS_LIST:
       return {
         ...state,
-        chatsList: action.chatsList,
+        currentChatsList: action.currentChatsList,
       };
 
 
-    case ADD_CHAT_TO_LIST:
+    case ADD_CURRENT_CHAT_TO_LIST:
       return {
         ...state,
-        chatsList: [action.chat, ...state.chatsList],
+        currentChatsList: [action.chat, ...state.currentChatsList],
       };
 
 

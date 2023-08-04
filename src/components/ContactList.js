@@ -12,11 +12,14 @@ export  class ContactList extends Component {
    this.props.dispatch(showContactForm(!this.props.setShowContactForm));
   }
 
+  
+
   render(){
      const {contactsOrGroupsList,contactOrGroupId}=this.props;
     return(
         <div className="ContactList">
              <SearchBar/>
+
              <div className="contactHeading">
                <span>Conversation</span>
                <button onClick={this.handleAddContactsBtnClick}>+</button>
@@ -30,6 +33,7 @@ export  class ContactList extends Component {
              {contactsOrGroupsList.map((contactOrGroup,index) => (
               <Contact 
                 contactOrGroup={contactOrGroup} 
+                chatsListOfList={this.props.chatsListOfList}
                 key={`contact-${index}`}
               />
             ))}
@@ -50,6 +54,7 @@ export default class ContactListWrapper extends Component {
             setShowContactForm={this.props.setShowContactForm}
             contactsOrGroupsList={this.props.contactsOrGroupsList}
             contactOrGroupId={userAndStore.store.getState().contactOrGroupId}
+            chatsListOfList={this.props.chatsListOfList}
             />
         )}
       </StoreContext.Consumer>

@@ -3,7 +3,7 @@ export const data={
     //---------1-------------------
     { 
       isGroup:false,
-      contactId:1, //userId
+      contactOrGroupId:1, //userId
       contactOrGroupName:'Anil',
       mobileNumber:'9893567476',  //admin mobile number or user/contact number
       profilePict:require('./assets/myPhoto.jpg'),
@@ -18,7 +18,7 @@ export const data={
     //---------2-----------------
     {
       isGroup:true,
-      groupId:2,
+      contactOrGroupId:2,
       contactOrGroupName:'Java Tr aining',
       //mobileNumber:null, 
       profilePict:require('./assets/myPhoto.jpg'),
@@ -34,7 +34,7 @@ export const data={
     //----------3-------------------
     {
       isGroup:false,
-      contactId:3,
+      contactOrGroupId:3,
       contactOrGroupName:'Akash',
       mobileNumber:'8463784838',   //admin mobile number or user/contact number
       profilePict:require('./assets/myPhoto.jpg'),
@@ -49,7 +49,7 @@ export const data={
     //-------4-----------------
     {
       isGroup:true,
-      groupId:4,
+      contactOrGroupId:4,
       contactOrGroupName:'Full stack web',
       // mobileNumber:null, 
       profilePict:require('./assets/myPhoto.jpg'),
@@ -64,110 +64,134 @@ export const data={
   ],
 
   //==============chatLists=========================
-  chatsLists:[
+  chatsListOfList:[
     //---------1-------------------
     {
-      chatsId:1,
       contactOrGroupId:1,
-      isMyMessage:false,
-      senderName:"Anil",
-      mobileNumber:'9893567476',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:00 PM',
-      content:"How are you?",
-      contentType:"text",   
-    },
-    {
-      chatsId:2,
-      contactOrGroupId:1,
-      isMyMessage:true,
-      senderName:"me",
-      mobileNumber:'9301511759',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:01 PM',
-      content:"i am fine?",
-      contentType:"text",
+      chatsLists:[
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:"How are you?  h hhhhhhhhh hhhhhhhh jjjjjjjj hhhhhhhhhhh hhh  h hhhhhhhhh hhhhhhhh jjjjjjjj hhhhhhhhhhh hhh",
+          contentType:"text",
+          chatId:1
+        },
+        {
+          isMyMessage:true,
+          senderName:"me",
+          mobileNumber:'9301511759',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"i am fine? aaaaaaaaa   bbbbbbbbb ccccccccccc gggggggg hhhhhhh hhhhhhhhh hhhhhhhh jjjjjjjj hhhhhhhhhhh hhhhhhhhhhh ggggggg hhhhhh gggggg hhhhhhh gggggggggg",
+          contentType:"text",
+          chatId:2
+        },
+        {
+          isMyMessage:true,
+          senderName:"aa",
+          mobileNumber:'9301511759',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"i am bbb fine?",
+          contentType:"text",
+          chatId:2
+        }
+     ]
     },
 
     //-------------2------------------------------
     {
-      chatsId:3,
       contactOrGroupId:2,
-      isMyMessage:false,
-      senderName:"Anil",
-      mobileNumber:'9893567476',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:00 PM',
-      content:"How are you?",
-      contentType:"text",
-    },   
-    {
-      chatsId:4,
-      contactOrGroupId:2,
-      isMyMessage:false,
-      senderName:"Anil",
-      mobileNumber:'9893567476',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:00 PM',
-      content:"How are you?",
-      contentType:"text",
+      chatsLists:[
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:"How are you?",
+          contentType:"text",
+          chatId:4
+        },
+        {
+          isMyMessage:true,
+          senderName:"me",
+          mobileNumber:'9301511759',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"i am fine?",
+          contentType:"text",
+          chatId:5
+        }
+     ]
     },
 
     //---------3-------------------
     {
-      chatsId:5,
+
       contactOrGroupId:3,
-      isMyMessage:false,
-      senderName:"Anil",
-      mobileNumber:'9893567476',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:00 PM',
-      content:"How are you?",
-      contentType:"text",   
-    },
-    {
-      chatsId:6,
-      contactOrGroupId:3,
-      isMyMessage:true,
-      senderName:"me",
-      mobileNumber:'9301511759',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:01 PM',
-      content:"i am fine?",
-      contentType:"text",
+      chatsLists:[
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:"How are you?",
+          contentType:"text",
+          chatId:6
+        },
+        {
+          isMyMessage:true,
+          senderName:"me",
+          mobileNumber:'9301511759',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"i am fine?",
+          contentType:"text",
+          chatId:7
+        }
+     ]
     },
 
     //---------4-------------------
     {
-      chatsId:7,
       contactOrGroupId:4,
-      isMyMessage:false,
-      senderName:"Anil",
-      mobileNumber:'9893567476',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:00 PM',
-      content:"How are you?",
-      contentType:"text",   
-    },
-    {
-      chatsId:8,
-      contactOrGroupId:4,
-      isMyMessage:true,
-      senderName:"me",
-      mobileNumber:'9301511759',
-      senderPict:"",
-      date:'31/07/2023',
-      time:'03:01 PM',
-      content:"i am fine?",
-      contentType:"text",
-    },
+      chatsLists:[
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:"How are you?",
+          contentType:"text",
+          chatId:8
+        },
+        {
+          isMyMessage:true,
+          senderName:"me",
+          mobileNumber:'9301511759',
+          senderPict:"",
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"i am fine?",
+          contentType:"text",
+          chatId:9
+        }
+     ]
+    }
  ],
 
  //====================groupMemberList===============

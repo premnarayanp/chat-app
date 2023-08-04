@@ -15,7 +15,7 @@ import {addContactOrGroupToList,showGroupForm,updateContactGroupId} from '../act
    //e.preventDefault();
     const initialGroup={ 
       isGroup:true,
-      groupId:0,
+      contactOrGroupId:0,
       contactOrGroupName:'',
       profilePict:require('../assets/myPhoto.jpg'),
       lastChat:{
@@ -30,7 +30,7 @@ import {addContactOrGroupToList,showGroupForm,updateContactGroupId} from '../act
     initialGroup.contactOrGroupName=this.state.groupName;
     initialGroup.groupAdmins[0]=this.props.user;
     initialGroup.lastActiveUser[0]=this.props.user;
-    initialGroup.groupId=this.props.contactOrGroupId+1;
+    initialGroup.contactOrGroupId=this.props.contactOrGroupId+1;
 
     //console.log("initialContact=",initialContact);
     this.props.dispatch(addContactOrGroupToList(initialGroup));

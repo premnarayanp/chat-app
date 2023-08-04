@@ -1,12 +1,29 @@
 import{Component} from "react"
 import '../styles/contact.css'
 //left sidebar item
-export default class Contact extends Component {
+import {addCurrentChatsList } from '../actions/index';
+import { StoreContext } from '..';
+
+ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isHover:false
     };
+  }
+
+  handleContactClick=(contactOrGroupId)=>{
+    console.log("contactOrGroupId=",contactOrGroupId);
+    //console.log("chatsListOfList=",this.props.chatsListOfList);
+    this.props.chatsListOfList.forEach((chats)=>{
+       if(chats.contactOrGroupId===contactOrGroupId){
+          this.props.dispatch(addCurrentChatsList(chats.chatsLists));
+          return;
+       }
+    })
+      
+    // this.props.dispatch(addCurrentChatsList([]));
+
   }
 
   render(){
@@ -15,6 +32,7 @@ export default class Contact extends Component {
         <div className="Contact" 
          onMouseEnter={()=>this.setState({isHover:true})}
          onMouseLeave={()=>this.setState({isHover:false})}
+         onClick={()=>this.handleContactClick(contactOrGroup.contactOrGroupId)}
         >
             <div>
               <span className='rounded-img-container'>
@@ -44,5 +62,22 @@ export default class Contact extends Component {
             </div>
         </div>
     )
+  }
+}
+
+
+export default class ContactWrapper extends Component {
+  render() {
+    return (
+      <StoreContext.Consumer>
+        {(userAndStore) => (
+          <Contact 
+            dispatch={userAndStore.store.dispatch} 
+            chatsListOfList={this.props.chatsListOfList}
+            contactOrGroup={this.props.contactOrGroup}
+            />
+        )}
+      </StoreContext.Consumer>
+    );
   }
 }
