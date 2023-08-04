@@ -10,7 +10,8 @@ import {
   SHOW_CONTACT_FORM,
   SHOW_GROUP_FORM,
   UPDATE_CONTACT_GROUP_ID,
-  UPDATE_CHAT_ID
+  UPDATE_CHAT_ID,
+  ADD_CURRENT_CONTACT_GROUP,
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -20,6 +21,7 @@ const initialChattingState = {
   chatsListOfList:[],
   currentChatsList: [],
   groupMembersList: [],
+  currentContactOrGroup:{notElement:true},
   setShowContactForm:false,
   setShowGroupForm:false,
   contactOrGroupId:0,
@@ -43,6 +45,11 @@ export default function chatting(state = initialChattingState, action) {
         contactsOrGroupsList: [action.contactOrGroup, ...state.contactsOrGroupsList],
       };
 
+    case ADD_CURRENT_CONTACT_GROUP:
+      return{
+        ...state,
+        currentContactOrGroup:action.currentContactOrGroup,
+      }
 
       case ADD_CHATS_LIST_OF_LIST:
         return {
@@ -54,7 +61,7 @@ export default function chatting(state = initialChattingState, action) {
       case ADD_CHATS_LIST_TO_LIST:
         return {
           ...state,
-          chatsListOfList: [action.chat, ...state.chatsListOfList],
+          chatsListOfList: [action.chatsList, ...state.chatsListOfList],
         };  
 
     case ADD_CURRENT_CHATS_LIST:

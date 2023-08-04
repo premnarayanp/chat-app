@@ -1,7 +1,15 @@
 import{Component} from "react"
 import '../styles/contactForm.css';
 import { StoreContext } from '..';
-import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../actions/index';
+
+import {
+  addContactOrGroupToList,
+  showContactForm,
+  updateContactGroupId,
+  addCurrentContactOrGroup,
+  addChatsListToList,
+  addCurrentChatsList
+} from '../actions/index';
 
  class ContactForm extends Component {
   constructor(props) {
@@ -12,6 +20,7 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
     };
   }
 
+  // add new  contacts in your  contactList 
   addContactsInList=()=>{
 
     const initialContact={ 
@@ -27,13 +36,26 @@ import {addContactOrGroupToList,showContactForm,updateContactGroupId} from '../a
       },
       group:null
     };
-
+    
+    //replace contacts details in this.that type in input box
     initialContact.contactOrGroupName=this.state.contactName;
     initialContact.mobileNumber=this.state.mobileNum;
     initialContact.contactOrGroupId=this.props.contactOrGroupId+1;
 
+    //create chatList in chatsListOfList for particular new  contact or group,that you want create
+    const initialChatList={
+      contactOrGroupId:this.props.contactOrGroupId+1,
+      chatsLists:[],
+   }
+
     //console.log("initialContact=",initialContact);
     this.props.dispatch(addContactOrGroupToList(initialContact));
+    this.props.dispatch(addCurrentContactOrGroup(initialContact));
+    
+    //update/create chatsListToList or currentChatsList
+    this.props.dispatch(addChatsListToList(initialChatList));
+    this.props.dispatch(addCurrentChatsList([]));
+
     this.props.dispatch(updateContactGroupId(this.props.contactOrGroupId+1));
     this.props.dispatch(showContactForm(!this.props.setShowContactForm));
   }

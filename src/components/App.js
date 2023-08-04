@@ -17,7 +17,7 @@ import { StoreContext } from '../index';
   }
 
  render(){
-    const { contactsOrGroupsList,chatsListOfList,currentChatsList,setShowContactForm,setShowGroupForm } = this.props.store.getState();
+    const { contactsOrGroupsList,chatsListOfList,currentChatsList,currentContactOrGroup,setShowContactForm,setShowGroupForm } = this.props.store.getState();
     //console.log('contactsOrGroupsList', contactsOrGroupsList);
   
   return (
@@ -32,6 +32,7 @@ import { StoreContext } from '../index';
       />
       <ChatBox
         currentChatsList={currentChatsList}
+        currentContactOrGroup={currentContactOrGroup}
       />
     </div>
   );

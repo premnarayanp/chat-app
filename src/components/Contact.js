@@ -1,7 +1,7 @@
 import{Component} from "react"
 import '../styles/contact.css'
 //left sidebar item
-import {addCurrentChatsList } from '../actions/index';
+import {addCurrentChatsList,addCurrentContactOrGroup } from '../actions/index';
 import { StoreContext } from '..';
 
  class Contact extends Component {
@@ -18,11 +18,13 @@ import { StoreContext } from '..';
     this.props.chatsListOfList.forEach((chats)=>{
        if(chats.contactOrGroupId===contactOrGroupId){
           this.props.dispatch(addCurrentChatsList(chats.chatsLists));
+          this.props.dispatch(addCurrentContactOrGroup(this.props.contactOrGroup));
           return;
        }
     })
       
-    // this.props.dispatch(addCurrentChatsList([]));
+    //this.props.dispatch(addCurrentChatsList([]));
+    this.props.dispatch(addCurrentContactOrGroup(this.props.contactOrGroup));
 
   }
 

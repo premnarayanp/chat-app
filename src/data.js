@@ -100,8 +100,42 @@ export const data={
           time:'03:01 PM',
           content:"i am bbb fine?",
           contentType:"text",
-          chatId:2
+          chatId:3
+        },
+        {
+          isMyMessage:true,
+          senderName:"aa",
+          mobileNumber:'9301511759',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"Bonus feature: Make the redux data persistent such that after refresh, the messages and conversations are intact.",
+          contentType:"text",
+          chatId:5
+        },
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:"Bonus feature: Make the redux data persistent such that after refresh, the messages and conversations are intact.",
+          contentType:"text",
+          chatId:6
+        },
+        {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:01 PM',
+          content:" the messages and conversations are intact.",
+          contentType:"text",
+          chatId:7
         }
+
      ]
     },
 
@@ -113,7 +147,7 @@ export const data={
           isMyMessage:false,
           senderName:"Anil",
           mobileNumber:'9893567476',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:00 PM',
           content:"How are you?",
@@ -124,7 +158,7 @@ export const data={
           isMyMessage:true,
           senderName:"me",
           mobileNumber:'9301511759',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:01 PM',
           content:"i am fine?",
@@ -143,7 +177,7 @@ export const data={
           isMyMessage:false,
           senderName:"Anil",
           mobileNumber:'9893567476',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:00 PM',
           content:"How are you?",
@@ -154,7 +188,7 @@ export const data={
           isMyMessage:true,
           senderName:"me",
           mobileNumber:'9301511759',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:01 PM',
           content:"i am fine?",
@@ -172,7 +206,7 @@ export const data={
           isMyMessage:false,
           senderName:"Anil",
           mobileNumber:'9893567476',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:00 PM',
           content:"How are you?",
@@ -183,7 +217,7 @@ export const data={
           isMyMessage:true,
           senderName:"me",
           mobileNumber:'9301511759',
-          senderPict:"",
+          senderPict:require('./assets/ankit.jpg'),
           date:'31/07/2023',
           time:'03:01 PM',
           content:"i am fine?",

@@ -1,7 +1,14 @@
 import{Component} from "react"
 import '../styles/groupForm.css';
 import { StoreContext } from '..';
-import {addContactOrGroupToList,showGroupForm,updateContactGroupId} from '../actions/index';
+import {
+  addContactOrGroupToList,
+  showGroupForm,
+  updateContactGroupId,
+  addCurrentContactOrGroup,
+  addChatsListToList,
+  addCurrentChatsList
+} from '../actions/index';
 
  class GroupForm extends Component {
   constructor(props) {
@@ -27,13 +34,26 @@ import {addContactOrGroupToList,showGroupForm,updateContactGroupId} from '../act
       lastActiveUser:{}
     };
 
+    //initial groups
     initialGroup.contactOrGroupName=this.state.groupName;
     initialGroup.groupAdmins[0]=this.props.user;
     initialGroup.lastActiveUser[0]=this.props.user;
     initialGroup.contactOrGroupId=this.props.contactOrGroupId+1;
 
+    //create chatList in chatsListOfList for particular new  contact or group,that you want create
+    const initialChatList={
+      contactOrGroupId:this.props.contactOrGroupId+1,
+      chatsLists:[],
+   }
+
     //console.log("initialContact=",initialContact);
     this.props.dispatch(addContactOrGroupToList(initialGroup));
+    this.props.dispatch(addCurrentContactOrGroup(initialGroup));
+   
+    //update/create chatsListToList or currentChatsList
+    this.props.dispatch(addChatsListToList(initialChatList));
+    this.props.dispatch(addCurrentChatsList([]));
+
     this.props.dispatch(updateContactGroupId(this.props.contactOrGroupId+1));
     this.props.dispatch(showGroupForm(!this.props.setShowGroupForm));
   }
