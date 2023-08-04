@@ -12,6 +12,7 @@
     padding: 2px 5px;
     background-color: aliceblue;
     cursor: pointer;
+    border: solid 1px gray;
 }
 
 .Contact:hover {

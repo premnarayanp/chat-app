@@ -2,18 +2,34 @@ import{Component} from "react"
 import '../styles/App.css';
 import { Navbar,ContactList,ChatBox} from './index';
 
-import {addContactsOrGroupsList,updateContactGroupId,addChatsListOfList,addCurrentChatsList,addGroupMembersList } from '../actions';
+import {addContactsOrGroupsList,
+  updateContactGroupId,
+  addChatsListOfList,
+  addCurrentChatsList,
+  addCurrentContactOrGroup } from '../actions';
+
 import { data}  from '../data';
 import { StoreContext } from '../index';
 
  class App extends Component{
 
-  componentDidMount() {
+  componentDidMount() { 
     this.props.store.subscribe(() => this.forceUpdate());
     this.props.store.dispatch(addContactsOrGroupsList(data.contactsOrGroupsList));
     this.props.store.dispatch(updateContactGroupId(data.contactsOrGroupsList.length));
     this.props.store.dispatch(addChatsListOfList(data.chatsListOfList));
-    // this.props.store.dispatch(addCurrentChatsList(data.currentChatsList));
+    
+   //load chat of last active user/index 0 contacts
+
+   data.chatsListOfList.forEach((chats)=>{
+    if(chats.contactOrGroupId===data.contactsOrGroupsList[0].contactOrGroupId){
+       this.props.store.dispatch(addCurrentChatsList(chats.chatsLists));
+       this.props.store.dispatch(addCurrentContactOrGroup(data.contactsOrGroupsList[0]));
+       return;
+    }
+ })
+
+
   }
 
  render(){
