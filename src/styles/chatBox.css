@@ -4,6 +4,7 @@
     display: inline-block;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
 }
 
 .chatBoxHeader {
@@ -36,6 +37,7 @@
     font-weight: 600;
     font-size: 15px;
     color: gray;
+    cursor: pointer;
 }
 
 .description {
@@ -45,6 +47,10 @@
     outline: none;
     cursor: pointer;
     background-color: rgb(212, 228, 242);
+}
+
+.chatBoxHeader .membersImg {
+    cursor: pointer;
 }
 
 .membersImg span {
@@ -67,16 +73,29 @@
 /* ============chat box chatBoxMain============= */
 
 .chatBoxMain {
-    height: 90%;
+    height: 80%;
     width: 100%;
     border: solid 1px gray;
     padding: 5px 20px;
     overflow-x: hidden;
     box-sizing: border-box;
+    border-bottom: 0;
 }
 
 .notChat {
     text-align: center;
     color: brown;
     font-family: sans-serif;
+}
+
+
+/* chatBox footer */
+
+.chatBoxFooter {
+    height: 10%;
+    width: 100%;
+    /* border: solid 1px gray; */
+    padding: 5px 20px;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }

@@ -12,6 +12,8 @@ import {
   UPDATE_CONTACT_GROUP_ID,
   UPDATE_CHAT_ID,
   ADD_CURRENT_CONTACT_GROUP,
+  SHOW_DESCRIPTION,
+  SHOW_GROUP_MEMBERS,
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -24,6 +26,8 @@ const initialChattingState = {
   currentContactOrGroup:{notElement:true},
   setShowContactForm:false,
   setShowGroupForm:false,
+  showDescription:false,
+  showGroupMembers:false,
   contactOrGroupId:0,
   chatId:0,
 };
@@ -113,8 +117,19 @@ export default function chatting(state = initialChattingState, action) {
       return{
         ...state,
         chatId:action.val
-      }  
+      }
 
+    case SHOW_DESCRIPTION:
+      return{
+         ...state,
+         showDescription:action.val
+      }      
+
+    case SHOW_GROUP_MEMBERS:
+      return{
+         ...state,
+         showGroupMembers:action.val
+      }  
     default:
       return state;
   }

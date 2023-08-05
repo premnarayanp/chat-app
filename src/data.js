@@ -237,17 +237,17 @@ export const data={
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/ankit.jpg'),
       },
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/myPhoto.jpg'),
       },
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/ankit.jpg'),
       },
     ]
   },
@@ -259,17 +259,17 @@ export const data={
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/myPhoto.jpg'),
       },
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/myPhoto.jpg'),
       },
       {
         contactName:'Anil',
         mobileNumber:'9893567476',
-        profilePict:'',
+        profilePict:require('./assets/myPhoto.jpg'),
       },
     ]
   },

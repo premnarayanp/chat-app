@@ -1,19 +1,26 @@
 import{Component} from "react"
 import '../styles/chatBox.css';
-import {ReceivingChat,SendingChat} from './index';
+import {ReceivingChat,SendingChat,Descriptions,ChatBoard} from './index';
+import {showDescription,showGroupMembers} from '../actions/index';
+import { StoreContext } from '..';
 
-export default class ChatBox extends Component {
+ class ChatBox extends Component {
 
+  handleDescriptionClick=()=>{
+    this.props.dispatch(showDescription(!this.props.showDescription));
+    this.props.dispatch(showGroupMembers(false));
+   }
+ 
   render(){
-    const {currentChatsList,currentContactOrGroup} =this.props;
-    console.log("currentChatsList=",currentChatsList);
+    const {currentChatsList,currentContactOrGroup,showDescription} =this.props;
+    //console.log("currentChatsList=",currentChatsList);
     return(
        
         <div className="ChatBox">
          {
           currentContactOrGroup.isGroup?
           <header className="chatBoxHeader">
-           <div className="membersImg">
+           <div className="membersImg" onClick={()=>this.handleDescriptionClick()}>
              <span className='roundedImageContainer'>
                <img src={currentContactOrGroup.profilePict} alt="user-pic" />
              </span>
@@ -27,7 +34,9 @@ export default class ChatBox extends Component {
              </span>
            </div>
 
-            <span className="contactNames">{currentContactOrGroup.contactOrGroupName+" ~ "+currentContactOrGroup.groupAdmins[0].name+","+currentContactOrGroup.lastActiveUser[0].name}...</span>
+            <span className="contactNames"
+               onClick={()=>this.handleDescriptionClick()}
+            >{currentContactOrGroup.contactOrGroupName+" ~ "+currentContactOrGroup.groupAdmins[0].name+","+currentContactOrGroup.lastActiveUser[0].name}...</span>
             <button className="addGroupMemberBtn">+</button>
           </header>
           : 
@@ -36,10 +45,18 @@ export default class ChatBox extends Component {
               <img src={currentContactOrGroup.profilePict} alt="user-pic" />
             </div>
             <span className="contactNames">{currentContactOrGroup.contactOrGroupName+" ~ "+currentContactOrGroup.mobileNumber}</span>
-            <button className="description">Description...</button>
+            <button className="description" onClick={()=>this.handleDescriptionClick()}>
+               Description...
+            </button>
           </header>
          }
-          
+        
+        {
+          showDescription && 
+          <Descriptions
+            currentContactOrGroup={currentContactOrGroup}
+          />
+        }
 
           <main className="chatBoxMain">
           {currentChatsList.map((chat,index) => (
@@ -49,12 +66,29 @@ export default class ChatBox extends Component {
             
           ))}
           </main>
+
+          <footer className="chatBoxFooter">
+             <ChatBoard/>
+          </footer>
         </div>
     )
   }
 }
 
-  
-// {
-//   currentChatsList[0]==='' &&
-//  }
+
+export default class ChatBoxWrapper extends Component {
+  render() {
+    return (
+      <StoreContext.Consumer>
+        {(userAndStore) => (
+          <ChatBox 
+            dispatch={userAndStore.store.dispatch} 
+            currentChatsList={this.props.currentChatsList}
+            currentContactOrGroup={this.props.currentContactOrGroup}
+            showDescription={userAndStore.store.getState().showDescription}
+            />
+        )}
+      </StoreContext.Consumer>
+    );
+  }
+}

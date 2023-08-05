@@ -6,7 +6,8 @@ import {addContactsOrGroupsList,
   updateContactGroupId,
   addChatsListOfList,
   addCurrentChatsList,
-  addCurrentContactOrGroup } from '../actions';
+  addCurrentContactOrGroup,
+addGroupMembersList } from '../actions';
 
 import { data}  from '../data';
 import { StoreContext } from '../index';
@@ -18,9 +19,9 @@ import { StoreContext } from '../index';
     this.props.store.dispatch(addContactsOrGroupsList(data.contactsOrGroupsList));
     this.props.store.dispatch(updateContactGroupId(data.contactsOrGroupsList.length));
     this.props.store.dispatch(addChatsListOfList(data.chatsListOfList));
+    this.props.store.dispatch(addGroupMembersList(data.groupMembersList));
     
-   //load chat of last active user/index 0 contacts
-
+   //load default  chat of last active user/index 0 contacts 
    data.chatsListOfList.forEach((chats)=>{
     if(chats.contactOrGroupId===data.contactsOrGroupsList[0].contactOrGroupId){
        this.props.store.dispatch(addCurrentChatsList(chats.chatsLists));

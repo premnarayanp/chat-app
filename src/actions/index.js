@@ -18,6 +18,9 @@ export const SHOW_GROUP_FORM = 'SHOW_GROUP_FORM';//done
 
 export const UPDATE_CONTACT_GROUP_ID = 'UPDATE_CONTACT_GROUP_ID';//done
 export const UPDATE_CHAT_ID = 'UPDATE_CHAT_ID';
+
+export const SHOW_DESCRIPTION = 'SHOW_DESCRIPTION';//done
+export const SHOW_GROUP_MEMBERS = 'SHOW_GROUP_MEMBERS';//done
    
 // action creators
 export function addContactsOrGroupsList(contactsOrGroupsList) {
@@ -101,13 +104,12 @@ export function showGroupForm(val) {
     val,
   };
 }
-
-export function updateContactGroupId(val) {
-  return {
-    type: UPDATE_CONTACT_GROUP_ID,
-    val,
-  };
-}
+  export function updateContactGroupId(val) {
+    return {
+      type: UPDATE_CONTACT_GROUP_ID,
+      val,
+    };
+  }
 
 export function updateChatId(val) {
   return {
@@ -116,5 +118,16 @@ export function updateChatId(val) {
   };
 }
 
+export function showDescription(val) {
+  return {
+    type: SHOW_DESCRIPTION,
+    val,
+  };
+}
 
-
+export function showGroupMembers(val) {
+  return {
+    type: SHOW_GROUP_MEMBERS,
+    val,
+  }
+}

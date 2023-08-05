@@ -10,7 +10,9 @@ import ChatBox from './ChatBox';//RightSideBar
 import SendingChat from './SendingChat';
 import ReceivingChat from './ReceivingChat';
 import GroupMembers from './GroupMembers';
-import GroupForm from './GroupForm.js'
+import GroupForm from './GroupForm.js';
+import Descriptions from './Descriptions';
+import ChatBoard from './ChatBoard';
 
 export { 
      Navbar,
@@ -22,5 +24,7 @@ export {
      SendingChat,
      ReceivingChat,
      GroupMembers,
-     GroupForm
+     GroupForm,
+     Descriptions,
+     ChatBoard
     };
