@@ -14,6 +14,7 @@ import {
   ADD_CURRENT_CONTACT_GROUP,
   SHOW_DESCRIPTION,
   SHOW_GROUP_MEMBERS,
+  UPDATE_CHATS_LIST_OF_LIST,
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -60,6 +61,13 @@ export default function chatting(state = initialChattingState, action) {
           ...state,
           chatsListOfList: action.chatsListOfList,
         };
+         
+        //just same to add chatsListOfList
+        case UPDATE_CHATS_LIST_OF_LIST:
+        return { 
+          ...state, 
+          chatsListOfList: state.chatsListOfList.map((chatListsObj)=>chatListsObj.contactOrGroupId===action.contactOrGroupId?{...chatListsObj ,chatsLists:state.currentChatsList}:chatListsObj )
+        };
   
   
       case ADD_CHATS_LIST_TO_LIST:
@@ -78,7 +86,7 @@ export default function chatting(state = initialChattingState, action) {
     case ADD_CURRENT_CHAT_TO_LIST:
       return {
         ...state,
-        currentChatsList: [action.chat, ...state.currentChatsList],
+        currentChatsList: [...state.currentChatsList,action.chat],
       };
 
 

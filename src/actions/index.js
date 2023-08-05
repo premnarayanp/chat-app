@@ -1,16 +1,16 @@
    // action types
 export const ADD_CONTACTS_GROUPS_LIST = 'ADD_CONTACTS_GROUPS_LIST'; //done
 export const ADD_CONTACT_GROUP_TO_LIST = 'ADD_CONTACT_GROUP_TO_LIST';//done
-export const ADD_CURRENT_CONTACT_GROUP='ADD_CURRENT_CONTACT_GROUP';
+export const ADD_CURRENT_CONTACT_GROUP='ADD_CURRENT_CONTACT_GROUP';//done
 
 export const ADD_CHATS_LIST_OF_LIST = 'ADD_CHATS_LIST_OF_LIST';//done
-export const ADD_CHATS_LIST_TO_LIST = 'ADD_CHATS_LIST_TO_LIST';
-
+export const UPDATE_CHATS_LIST_OF_LIST = 'UPDATE_CHATS_LIST_OF_LIST';//done
+export const ADD_CHATS_LIST_TO_LIST = 'ADD_CHATS_LIST_TO_LIST';//done
 
 export const ADD_CURRENT_CHATS_LIST = 'ADD_CURRENT_CHATS_LIST';//done
-export const ADD_CURRENT_CHAT_TO_LIST = 'ADD_CURRENT_CHAT_TO_LIST';
+export const ADD_CURRENT_CHAT_TO_LIST = 'ADD_CURRENT_CHAT_TO_LIST';//done
 
-export const ADD_GROUP_MEMBERS_LIST = 'ADD_GROUP_MEMBERS_LIST'; 
+export const ADD_GROUP_MEMBERS_LIST = 'ADD_GROUP_MEMBERS_LIST'; //done
 export const ADD_GROUP_MEMBERS_TO_LIST = 'ADD_GROUP_MEMBERS_TO_LIST'; 
 
 export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';//done
@@ -51,6 +51,13 @@ export function addChatsListOfList(chatsListOfList) {
   return {
     type: ADD_CHATS_LIST_OF_LIST,
     chatsListOfList,
+  };
+}
+
+export function updateChatsListOfList(contactOrGroupId) {
+  return {
+    type: UPDATE_CHATS_LIST_OF_LIST,
+    contactOrGroupId,
   };
 }
 

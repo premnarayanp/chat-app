@@ -1,0 +1,59 @@
+.ChatBoard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border: solid 1px rgb(243, 212, 212);
+    box-shadow: 0 1px 4px 0 #ededf2, 0 0 0 1px #f1f1f1;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.chatInput {
+    border: 0;
+    outline: none;
+    color: green;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    width: 90%;
+    display: inline-block;
+    min-height: 50px;
+    align-items: center;
+    background-color: white;
+}
+
+.mediaBtn {
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    display: inline-block;
+    border: 0;
+    outline: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.sendChatBtn {
+    height: 20px;
+    width: 40px;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background-color: green;
+    display: inline-block;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.chatInput {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.chatInput::-webkit-scrollbar {
+    display: none;
+}

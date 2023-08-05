@@ -68,7 +68,11 @@ import { StoreContext } from '..';
           </main>
 
           <footer className="chatBoxFooter">
-             <ChatBoard/>
+             <ChatBoard
+               user={this.props.user}
+               dispatch={this.props.dispatch}
+               contactOrGroupId ={currentContactOrGroup.contactOrGroupId}
+             />
           </footer>
         </div>
     )
@@ -86,6 +90,7 @@ export default class ChatBoxWrapper extends Component {
             currentChatsList={this.props.currentChatsList}
             currentContactOrGroup={this.props.currentContactOrGroup}
             showDescription={userAndStore.store.getState().showDescription}
+            user={userAndStore.user}
             />
         )}
       </StoreContext.Consumer>
