@@ -16,7 +16,8 @@ import {
   SHOW_GROUP_MEMBERS,
   UPDATE_CHATS_LIST_OF_LIST,
   SHOW_SEARCH_RESULTS,
-  ADD_SEARCH_RESULTS
+  ADD_SEARCH_RESULTS,
+  UPDATE_LAST_CHAT_MSG
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -153,6 +154,14 @@ export default function chatting(state = initialChattingState, action) {
          ...state,
          searchResults:action.searchResults
       }  
+
+      //just same to add chatsListOfList
+      case UPDATE_LAST_CHAT_MSG:
+        return { 
+          ...state, 
+          contactsOrGroupsList: state.contactsOrGroupsList.map((contactsOrGroupOBj)=>contactsOrGroupOBj.contactOrGroupId===action.contactOrGroupId?{...contactsOrGroupOBj ,lastChat:action.lastChatMsg}:contactsOrGroupOBj )
+        };
+
     default:
       return state;
   }

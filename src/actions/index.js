@@ -25,6 +25,8 @@ export const SHOW_GROUP_MEMBERS = 'SHOW_GROUP_MEMBERS';//done
 export const SHOW_SEARCH_RESULTS = 'SHOW_SEARCH_RESULTS';//done
 export const ADD_SEARCH_RESULTS = 'ADD_SEARCH_RESULTS';//done
 
+export const UPDATE_LAST_CHAT_MSG = 'UPDATE_LAST_CHAT_MSG';//done this update last chat massage in contactsOrGroupList
+
 
    
 // action creators
@@ -155,5 +157,13 @@ export function addSearchResults(searchResults) {
   return {
     type: ADD_SEARCH_RESULTS,
     searchResults,
+  }
+}
+
+export function updateLastChatMsg(contactOrGroupId,lastChatMsg) {
+  return {
+    type: UPDATE_LAST_CHAT_MSG,
+    contactOrGroupId,
+    lastChatMsg,
   }
 }

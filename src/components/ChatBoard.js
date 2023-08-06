@@ -1,6 +1,6 @@
 import{Component} from "react"
 import '../styles/chatBoard.css';
-import {addCurrentChatToList,updateChatsListOfList} from '../actions/index'
+import {addCurrentChatToList,updateChatsListOfList,updateLastChatMsg} from '../actions/index'
 export default class ChatBoard extends Component {
   constructor(props) {
     super(props);
@@ -70,6 +70,17 @@ export default class ChatBoard extends Component {
         //only because chatsListOList, currentChaList both available in reducer state
         //so don,t need to pass it ,or separate action function
         this.props.dispatch(updateChatsListOfList(this.props.contactOrGroupId));
+
+       const lastChat={
+          text:initialChats.content,  
+          date:date,
+          time:time
+        }
+        
+        //Update lastChat massage
+        this.props.dispatch(updateLastChatMsg(this.props.contactOrGroupId,lastChat));
+          
+        //also ,we required to update currentContactOrGroup lastChat massage , but now skip because we don,t show last message in description
 
 
         this.setState({inputChat:''});
