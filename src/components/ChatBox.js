@@ -5,7 +5,7 @@ import {showDescription,showGroupMembers} from '../actions/index';
 import { StoreContext } from '..';
 
  class ChatBox extends Component {
-
+  
   handleDescriptionClick=()=>{
     this.props.dispatch(showDescription(!this.props.showDescription));
     this.props.dispatch(showGroupMembers(false));
@@ -72,6 +72,7 @@ import { StoreContext } from '..';
                user={this.props.user}
                dispatch={this.props.dispatch}
                contactOrGroupId ={currentContactOrGroup.contactOrGroupId}
+               showSelectedImg={this.props.showSelectedImg}
              />
           </footer>
         </div>
@@ -91,6 +92,7 @@ export default class ChatBoxWrapper extends Component {
             currentContactOrGroup={this.props.currentContactOrGroup}
             showDescription={userAndStore.store.getState().showDescription}
             user={userAndStore.user}
+            showSelectedImg={userAndStore.store.getState().showSelectedImg}
             />
         )}
       </StoreContext.Consumer>

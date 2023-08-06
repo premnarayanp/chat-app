@@ -17,7 +17,8 @@ import {
   UPDATE_CHATS_LIST_OF_LIST,
   SHOW_SEARCH_RESULTS,
   ADD_SEARCH_RESULTS,
-  UPDATE_LAST_CHAT_MSG
+  UPDATE_LAST_CHAT_MSG,
+  SHOW_SELECTED_IMG
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -35,6 +36,7 @@ const initialChattingState = {
   contactOrGroupId:0,
   showSearchResults:false,
   searchResults:[],
+  showSelectedImg:false,
 };
 
 export default function chatting(state = initialChattingState, action) {
@@ -161,6 +163,12 @@ export default function chatting(state = initialChattingState, action) {
           ...state, 
           contactsOrGroupsList: state.contactsOrGroupsList.map((contactsOrGroupOBj)=>contactsOrGroupOBj.contactOrGroupId===action.contactOrGroupId?{...contactsOrGroupOBj ,lastChat:action.lastChatMsg}:contactsOrGroupOBj )
         };
+
+     case SHOW_SELECTED_IMG:
+      return{
+        ...state,
+        showSelectedImg:action.val
+      }    
 
     default:
       return state;

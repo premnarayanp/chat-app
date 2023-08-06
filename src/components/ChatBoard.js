@@ -1,11 +1,13 @@
 import{Component} from "react"
 import '../styles/chatBoard.css';
-import {addCurrentChatToList,updateChatsListOfList,updateLastChatMsg} from '../actions/index'
+import {addCurrentChatToList,updateChatsListOfList,updateLastChatMsg,showSelectedImg} from '../actions/index'
 export default class ChatBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       inputChat:'',
+      inputImg :'',
+      sendingType:"text"
     };
   }
 
@@ -52,13 +54,20 @@ export default class ChatBoard extends Component {
 
         } 
         
-        initialChats.content=this.state.inputChat;
         initialChats.date=date;
         initialChats.time=time;
         initialChats.senderName=name;
         initialChats.mobileNumber=mobile;
         initialChats.senderPict=profilePic;
+
+        if(this.state.sendingType==="text"){
+          initialChats.content=this.state.inputChat;
+        }else{
+          initialChats.content=this.state.inputImg;
+          initialChats.contentType="img";
+        }
        
+        console.log("initialChats=",initialChats)
         //update currentChaList
         this.props.dispatch(addCurrentChatToList(initialChats));
 
@@ -78,26 +87,72 @@ export default class ChatBoard extends Component {
         }
         
         //Update lastChat massage
-        this.props.dispatch(updateLastChatMsg(this.props.contactOrGroupId,lastChat));
+          
+        if(initialChats.contentType==="text"){
+          this.props.dispatch(updateLastChatMsg(this.props.contactOrGroupId,lastChat));
+        }
           
         //also ,we required to update currentContactOrGroup lastChat massage , but now skip because we don,t show last message in description
 
-
         this.setState({inputChat:''});
-        
+        this.setState({inputImg:''});
+        // this.setState({showSelectedImg:false});
+        this.props.dispatch(showSelectedImg(false));
+        this.setState({sendingType:"text"});
+      
  
   }
 
+  handleImageSelect =(e)=>{
+    this.setState({inputImg:URL.createObjectURL(e.target.files[0])})
+    // this.setState({showSelectedImg:true});
+    this.props.dispatch(showSelectedImg(true));
+    this.setState({sendingType:"img"});
+
+    // console.log("inputImg=",URL.createObjectURL(e.target.files[0]));
+    // console.log("inputImg=",this.state.inputImg);
+  }
+  
+
   render(){
-    //const {currentGroupMemberList,dispatch}=this.props;
    
     return(
-        <div className="ChatBoard">
-          <button className="mediaBtn"></button>
-          <textarea value={this.state.inputChat} onChange={(e)=>{this.setState({inputChat:e.target.value})}} type="text" className="chatInput"></textarea>
-          <button className="sendChatBtn" onClick={()=>this.SendChat()}></button>
-        </div>
+        
+         <div>
+             {
+              this.props.showSelectedImg &&
+              <div className="sendingImgContainer">
+                 <img src={this.state.inputImg} alt=""/>
+                 <button className="sendImageBtn" onClick={()=>this.SendChat()}> send</button>
+              </div>
+             }
+            
+            <div className="ChatBoard">
+             <input inputImg className="mediaBtn" type="file"   
+               onChange={(e)=>this.handleImageSelect(e)}
+             />
 
+              <textarea 
+               value={this.state.inputChat} 
+               onChange={(e)=>{ this.setState({inputChat:e.target.value})}} 
+               type="text" className="chatInput">
+              </textarea>
+
+              <button className="sendChatBtn" onClick={()=>this.SendChat()}></button>
+            </div>
+          </div>
     )
   }
 }
+
+
+
+
+// {/* <div className="mediaBoard">
+// {
+//   this.state.sendMedia &&
+//    <div className="mediaPicContainer">
+//       <img src="" alt=""/>
+//    </div>
+// }
+// </div> */}

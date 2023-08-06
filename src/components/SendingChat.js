@@ -15,7 +15,11 @@ export default class SendingChat extends Component {
           </div>
 
           <div className="chatMessage">
-            <p>{chat.content}</p>
+            {chat.contentType==="img"?
+              <div className="chatImg"> <img src={chat.content} alt="content" /></div>
+              :
+              <p>{chat.content}</p>
+            }
           </div>
 
           <div className="dateAndTime">

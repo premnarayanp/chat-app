@@ -26,6 +26,7 @@ export const SHOW_SEARCH_RESULTS = 'SHOW_SEARCH_RESULTS';//done
 export const ADD_SEARCH_RESULTS = 'ADD_SEARCH_RESULTS';//done
 
 export const UPDATE_LAST_CHAT_MSG = 'UPDATE_LAST_CHAT_MSG';//done this update last chat massage in contactsOrGroupList
+export const SHOW_SELECTED_IMG = 'SHOW_SELECTED_IMG';//done
 
 
    
@@ -165,5 +166,12 @@ export function updateLastChatMsg(contactOrGroupId,lastChatMsg) {
     type: UPDATE_LAST_CHAT_MSG,
     contactOrGroupId,
     lastChatMsg,
+  }
+}
+
+export function showSelectedImg(val) {
+  return {
+    type: SHOW_SELECTED_IMG,
+    val,
   }
 }

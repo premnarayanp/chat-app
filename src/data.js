@@ -81,6 +81,28 @@ export const data={
           chatId:1
         },
         {
+          isMyMessage:false,
+          senderName:"Anil",
+          mobileNumber:'9893567476',
+          senderPict:require('./assets/ankit.jpg'),
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:require('./assets/ankit.jpg'),
+          contentType:"img",
+          chatId:1
+        },
+        {
+          isMyMessage:true,
+          senderName:"prem",
+          mobileNumber:'9301511759',
+          senderPict:require('./assets/myPhoto.jpg'),
+          date:'31/07/2023',
+          time:'03:00 PM',
+          content:require('./assets/ankit.jpg'),
+          contentType:"img",
+          chatId:1
+        },
+        {
           isMyMessage:true,
           senderName:"me",
           mobileNumber:'9301511759',
