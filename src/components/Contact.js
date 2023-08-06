@@ -28,7 +28,7 @@ import { StoreContext } from '..';
       
     //this.props.dispatch(addCurrentChatsList([]));
     this.props.dispatch(addCurrentContactOrGroup(this.props.contactOrGroup));
-
+ 
   }
 
   render(){

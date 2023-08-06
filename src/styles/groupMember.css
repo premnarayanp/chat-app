@@ -1,6 +1,6 @@
-.GroupMembers {
-    /* padding: 2px 20px; */
-}
+/* .GroupMembers {
+   
+} */
 
 .groupMember {
     margin-top: 8px;
@@ -14,20 +14,23 @@
     background-color: aliceblue;
 }
 
-.groupMember .roundedImageContainer {
+.groupMember .memberItems .roundedImageContainer {
     height: 35px;
     width: 35px;
     display: inline-block;
 }
 
-.groupMember .roundedImageContainer {
+.groupMember .roundedImageContainer img {
     height: 100%;
     width: 100%;
     border-radius: 100%;
 }
 
-.groupMember .contactNames {
+.groupMember .memberItems .contactNames {
     font-size: 15px;
     color: green;
     font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    margin-left: 10px;
 }

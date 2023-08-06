@@ -15,6 +15,8 @@ import {
   SHOW_DESCRIPTION,
   SHOW_GROUP_MEMBERS,
   UPDATE_CHATS_LIST_OF_LIST,
+  SHOW_SEARCH_RESULTS,
+  ADD_SEARCH_RESULTS
 } from '../actions';
 
 // import { combineReducers } from 'redux';
@@ -30,7 +32,8 @@ const initialChattingState = {
   showDescription:false,
   showGroupMembers:false,
   contactOrGroupId:0,
-  chatId:0,
+  showSearchResults:false,
+  searchResults:[],
 };
 
 export default function chatting(state = initialChattingState, action) {
@@ -137,6 +140,18 @@ export default function chatting(state = initialChattingState, action) {
       return{
          ...state,
          showGroupMembers:action.val
+      }
+      
+    case SHOW_SEARCH_RESULTS:
+      return{
+         ...state,
+         showSearchResults:action.val
+      }
+      
+    case ADD_SEARCH_RESULTS:
+      return{
+         ...state,
+         searchResults:action.searchResults
       }  
     default:
       return state;

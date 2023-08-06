@@ -21,6 +21,11 @@ export const UPDATE_CHAT_ID = 'UPDATE_CHAT_ID';
 
 export const SHOW_DESCRIPTION = 'SHOW_DESCRIPTION';//done
 export const SHOW_GROUP_MEMBERS = 'SHOW_GROUP_MEMBERS';//done
+
+export const SHOW_SEARCH_RESULTS = 'SHOW_SEARCH_RESULTS';//done
+export const ADD_SEARCH_RESULTS = 'ADD_SEARCH_RESULTS';//done
+
+
    
 // action creators
 export function addContactsOrGroupsList(contactsOrGroupsList) {
@@ -136,5 +141,19 @@ export function showGroupMembers(val) {
   return {
     type: SHOW_GROUP_MEMBERS,
     val,
+  }
+}
+
+export function showSearchResults(val) {
+  return {
+    type: SHOW_SEARCH_RESULTS,
+    val,
+  }
+}
+
+export function addSearchResults(searchResults) {
+  return {
+    type: ADD_SEARCH_RESULTS,
+    searchResults,
   }
 }

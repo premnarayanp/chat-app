@@ -12,11 +12,13 @@ export default class GroupMembers extends Component {
                  return(
                   <div className="groupMember">
 
-                    <div className='roundedImageContainer'>
+                   <div className="memberItems">
+                   <div className='roundedImageContainer'>
                      <img src={member.profilePict} alt="user-pic" />
                    </div>
 
                    <span className="contactNames">{member.contactName}</span>
+                   </div>
 
                    <span className="contactNames">{"+ "+member.mobileNumber}</span>
                    

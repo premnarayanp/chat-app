@@ -2,7 +2,7 @@ import{Component} from "react";
 import '../styles/contactList.css';
 import {SearchBar,Contact,ContactForm} from './index';
 import { StoreContext } from '..';
-import {showContactForm} from '../actions/index'
+import {showContactForm,showSearchResults} from '../actions/index'
 
 //left sidebar
 
@@ -12,13 +12,38 @@ export  class ContactList extends Component {
    this.props.dispatch(showContactForm(!this.props.setShowContactForm));
   }
 
-  
+  handleHideSearchBtnClick=(e)=>{
+    this.props.dispatch(showSearchResults(false));
+   }
 
   render(){
-     const {contactsOrGroupsList,contactOrGroupId}=this.props;
+     const {contactsOrGroupsList,contactOrGroupId,showSearchResults,searchResults}=this.props;
     return(
         <div className="ContactList">
-             <SearchBar/>
+             <SearchBar
+              contactsOrGroupsList={contactsOrGroupsList}
+              dispatch={this.props.dispatch}
+             />
+             
+             {/* show search Results */}
+             {
+              showSearchResults &&
+               <div className="searchResults">
+                <button className="hideSearchResultsBtn" onClick={()=>this.handleHideSearchBtnClick()}>hide</button>
+                 {searchResults.map((contactOrGroup,index) => (
+                   <Contact 
+                     contactOrGroup={contactOrGroup} 
+                     chatsListOfList={this.props.chatsListOfList}
+                     key={`searchResults-${index}`}
+                   />
+                 ))}
+                 
+                 {
+                  searchResults.length===0 &&
+                  <h3 className="notFoundResults">Not FoundResults </h3>
+                 }
+               </div>
+              }
 
              <div className="contactHeading">
                <span>Conversation</span>
@@ -55,6 +80,8 @@ export default class ContactListWrapper extends Component {
             contactsOrGroupsList={this.props.contactsOrGroupsList}
             contactOrGroupId={userAndStore.store.getState().contactOrGroupId}
             chatsListOfList={this.props.chatsListOfList}
+            showSearchResults={userAndStore.store.getState().showSearchResults}
+            searchResults={userAndStore.store.getState().searchResults}
             />
         )}
       </StoreContext.Consumer>
