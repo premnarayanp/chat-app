@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/chat-app/static/css/main.c70a9414.css",
+    "main.js": "/chat-app/static/js/main.365e34df.js",
+    "static/media/raksha.jpg": "/chat-app/static/media/raksha.4d2ef03ba75f8602ae55.jpg",
+    "static/media/java.jpg": "/chat-app/static/media/java.f1d38b224eafa0958fd0.jpg",
+    "index.html": "/chat-app/index.html",
+    "main.c70a9414.css.map": "/chat-app/static/css/main.c70a9414.css.map",
+    "main.365e34df.js.map": "/chat-app/static/js/main.365e34df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c70a9414.css",
+    "static/js/main.365e34df.js"
+  ]
+}
