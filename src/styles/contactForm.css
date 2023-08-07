@@ -60,12 +60,51 @@
     outline: none;
 }
 
+.profilePicker {
+    height: 70px;
+    width: 70px;
+    margin-top: 20px;
+}
 
-/* .field button:hover {
+.profilePicker img {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.profilePicker .selectProfileLabel {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    color: gray;
+    background-color: bisque;
+    font-weight: 800;
+    border: 0;
+    outline: none;
+    font-size: 50px;
+    border-radius: 100%;
     cursor: pointer;
-} */
+    text-align: center;
+    padding: 0;
+}
 
+.profilePicker input {
+    display: none;
+}
 
-/* .field button:disabled {
-    cursor: not-allowed;
-} */
+.anotherProfilePicker label {
+    height: 15px;
+    color: gray;
+    border: solid 1px gray;
+    display: inline-block;
+    cursor: pointer;
+    padding: 1px;
+    background-color: rgb(247, 240, 231);
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 7px;
+}
+
+.anotherProfilePicker input {
+    display: none;
+}

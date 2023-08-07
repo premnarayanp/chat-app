@@ -3,12 +3,21 @@
     height: 92%;
     width: 40%;
     border: solid 1px grey;
+    /* border-right: 0; */
     display: inline-block;
     box-sizing: border-box;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow: hidden;
     margin-left: 0;
     padding: 0 20px;
     position: relative;
+}
+
+.contactsListMain {
+    overflow-x: hidden;
+    height: 90%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
 }
 
 .searchResults {

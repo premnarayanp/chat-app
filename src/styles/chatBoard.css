@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    border: solid 1px rgb(243, 212, 212);
+    border: solid 1px gray;
     box-shadow: 0 1px 4px 0 #ededf2, 0 0 0 1px #f1f1f1;
     border-radius: 15px;
     background-color: white;
@@ -23,27 +23,56 @@
     background-color: white;
 }
 
-.mediaBtn {
-    height: 20px;
-    width: 20px;
-    background-color: green;
+.mediaSelectContainer {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    position: relative;
+}
+
+.mediaSelectContainer img {
+    height: 100%;
+    width: 100%;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.mediaSelectContainer>input {
+    display: none;
+}
+
+
+/* .mediaBtn {
     display: inline-block;
     border: 0;
     outline: none;
-    border-radius: 100%;
     cursor: pointer;
-}
+    background: no-repeat;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    border-radius: 100%;
+    background: transparent;
+} */
 
 .sendChatBtn {
     height: 20px;
     width: 40px;
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
-    background-color: green;
+    /* background-color: green; */
     display: inline-block;
     border: 0;
     outline: none;
     cursor: pointer;
+    /* background-image: "../assets/send.png"; */
+    background-color: transparent;
+}
+
+.sendChatBtn img {
+    height: 100%;
+    width: 100%;
+    color: green;
 }
 
 .chatInput {

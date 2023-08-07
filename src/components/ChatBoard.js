@@ -89,6 +89,9 @@ export default class ChatBoard extends Component {
         //Update lastChat massage
           
         if(initialChats.contentType==="text"){
+          if(lastChat.text.length>30){
+            lastChat.text=lastChat.text.substring(0,30);
+          }
           this.props.dispatch(updateLastChatMsg(this.props.contactOrGroupId,lastChat));
         }
           
@@ -114,6 +117,13 @@ export default class ChatBoard extends Component {
   }
   
 
+  closeImagePost=()=>{
+    this.setState({inputChat:''});
+    this.setState({inputImg:''});
+    this.props.dispatch(showSelectedImg(false));
+    this.setState({sendingType:"text"});
+  }
+
   render(){
    
     return(
@@ -123,14 +133,22 @@ export default class ChatBoard extends Component {
               this.props.showSelectedImg &&
               <div className="sendingImgContainer">
                  <img src={this.state.inputImg} alt=""/>
+                 <button className="sendImageBtn" onClick={()=>this.closeImagePost()}> close</button>
                  <button className="sendImageBtn" onClick={()=>this.SendChat()}> send</button>
               </div>
              }
             
             <div className="ChatBoard">
-             <input inputImg className="mediaBtn" type="file"   
-               onChange={(e)=>this.handleImageSelect(e)}
-             />
+           
+              <div className="mediaSelectContainer">
+                <label for="selectMediaInput">
+                   <img src={require('../assets/attachfile.png')} alt="" />
+                </label>
+                <input id="selectMediaInput" className="mediaBtn" type="file"   
+                   onChange={(e)=>this.handleImageSelect(e)}
+                />
+              </div>
+              
 
               <textarea 
                value={this.state.inputChat} 
@@ -138,7 +156,9 @@ export default class ChatBoard extends Component {
                type="text" className="chatInput">
               </textarea>
 
-              <button className="sendChatBtn" onClick={()=>this.SendChat()}></button>
+              <button className="sendChatBtn" onClick={()=>this.SendChat()}>
+                <img src={require('../assets/send.png')} alt="" />
+              </button>
             </div>
           </div>
     )

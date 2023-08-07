@@ -55,6 +55,7 @@ export  class ContactList extends Component {
               setShowContactForm={this.props.setShowContactForm}
               />}
 
+             <div className="contactsListMain">
              {contactsOrGroupsList.map((contactOrGroup,index) => (
               <Contact 
                 contactOrGroup={contactOrGroup} 
@@ -62,6 +63,7 @@ export  class ContactList extends Component {
                 key={`contact-${index}`}
               />
             ))}
+             </div>
               
         </div>
     )

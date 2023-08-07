@@ -17,6 +17,7 @@ import {
     this.state = {
       contactName:"",
       mobileNum:"",
+      selectedProfile:""
     };
   }
 
@@ -41,6 +42,7 @@ import {
     initialContact.contactOrGroupName=this.state.contactName;
     initialContact.mobileNumber=this.state.mobileNum;
     initialContact.contactOrGroupId=this.props.contactOrGroupId+1;
+    initialContact.profilePict=this.state.selectedProfile;
 
     //create chatList in chatsListOfList for particular new  contact or group,that you want create
     const initialChatList={
@@ -58,14 +60,44 @@ import {
 
     this.props.dispatch(updateContactGroupId(this.props.contactOrGroupId+1));
     this.props.dispatch(showContactForm(!this.props.setShowContactForm));
+    
+  }
+
+  selectProfilePic=(e)=>{
+    this.setState({selectedProfile:URL.createObjectURL(e.target.files[0])})
   }
 
   render(){
     return(
       <div  className="ContactForm">
+        <span className="contactFormHeader"> Add Contact</span>
 
-      <span className="contactFormHeader"> Add Contact</span>
+        <div className="profilePicker">
+          {
+            this.state.selectedProfile!=="" 
+            ?<img className="ProfileImg" src={ this.state.selectedProfile} alt="" />
 
+            :<div>
+              <label for="profileSelector" className="selectProfileLabel">+</label>
+              <input id="profileSelector"  type="file"   
+                   onChange={(e)=>this.selectProfilePic(e)}
+               />
+            </div>
+          }
+        </div>
+
+        {
+           this.state.selectedProfile!=="" &&
+           <div className="anotherProfilePicker">
+            <label for="anotherProfileSelector">Select Another Pic</label>
+
+            <input id="anotherProfileSelector"  type="file"   
+                   onChange={(e)=>this.selectProfilePic(e)}
+            />
+          </div>
+         }
+       
+       
       <div className="field">
         <input
           placeholder="Enter Name"
@@ -74,8 +106,8 @@ import {
           value={this.state.contactName}
           onChange={(e) => this.setState({contactName:e.target.value})}
         />
-
       </div>
+
       <div className="field">
         <input
           placeholder="Enter MobileNum"
